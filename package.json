@@ -1,0 +1,8 @@
+{
+  "name": "requirejs-glob",
+  "main": "lib/requirejs-glob",
+  "version": "0.1.0",
+  "dependencies": {
+    "glob-whatev": "~0.1.8"
+  }
+}

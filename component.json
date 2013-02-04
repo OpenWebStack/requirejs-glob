@@ -1,0 +1,6 @@
+{
+  "name": "requirejs-glob",
+  "main": "lib/glob",
+  "version": "0.1.0",
+  "ignore": ["lib/requirejs-glob", "package.json"]
+}
