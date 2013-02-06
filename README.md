@@ -18,7 +18,7 @@ Now as you develop your application all new matching files will be included auto
 ##How
 The Browser environment has no way to find glob-matching files. So this plugin has a tiny server-side companion that runs during development only, listening for requests from the `glob!` plugin and returning lists of matching files. 
 
-One could accomplish something similar with a pre-run compile step like [Grunt](http://gruntjs.com/) or [Component](https://component.jit.su/), but part of the beauty of [RequireJS](http://requirejs.org/) is that it runs natively in the browser without the need for a build step. Most projets already use a webserver during development anyway. I like to think of this approach as "JIT Compiled AMD" plugin. 
+One could accomplish something similar with a pre-run compile step like [Grunt](http://gruntjs.com/) or [Component](https://component.jit.su/), but part of the beauty of [RequireJS](http://requirejs.org/) is that it runs natively in the browser without the need for a build step. Most projects already use a webserver during development anyway. I like to think of this approach as "JIT Compiled AMD" plugin. 
 
 This piece is currently available as an [Express](http://expressjs.com/guide.html) middleware.
 
