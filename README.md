@@ -20,7 +20,7 @@ The Browser environment has no way to find glob-matching files. So this plugin h
 
 One could accomplish something similar with a pre-run compile step like [Grunt](http://gruntjs.com/) or [Component](https://component.jit.su/), but part of the beauty of [RequireJS](http://requirejs.org/) is that it runs natively in the browser without the need for a build step. Most projects already use a webserver during development anyway. I like to think of this approach as "JIT Compiled AMD" plugin. 
 
-This piece is currently available as an [Express](http://expressjs.com/guide.html) middleware.
+This piece is currently available as a [Connect](http://www.senchalabs.org/connect/) and [Express](http://expressjs.com/guide.html) compatible middleware.
 
 ##Getting Started
 Install the plugin with [Bower](http://twitter.github.com/bower/):
@@ -65,6 +65,39 @@ require(['glob!controllers/**/*.js'], function(){});
 ``` 
 
 Enjoy!
+
+##Grunt integration
+
+The middleware can also be used as part of a [Grunt][] build, where the web server
+is created with the [grunt-contrib-connect][] task.  To do this, the grunt
+task must be configured with custom middleware.
+
+For a registered task named `connect:server`, where compiled files are placed
+in the `generated` directory, use the [middleware][] configuration option to
+load support for the requirejs glob middleware.
+
+```javascript
+connect: {
+  server: {
+    options: {
+      base: "generated",
+      middleware: function(connect, options) {
+        // Return array of whatever middlewares you want
+        return [
+          require('requirejs-glob')(),
+          // standard middleware for static files and dir browsing
+          connect.static(options.base),
+          connect.directory(options.base)
+        ];
+      }
+    }
+  }
+}
+```
+
+[Grunt]: http://gruntjs.com/
+[grunt-contrib-connect]: https://github.com/gruntjs/grunt-contrib-connect
+[middleware]: https://github.com/gruntjs/grunt-contrib-connect#middleware
 
 ##License
 MIT
