@@ -1,4 +1,4 @@
-#requirejs-glob
+#requirejs-glob (experimental)
 A RequireJS plugin for loading multiple files that match a glob pattern.
 
 ##Why
